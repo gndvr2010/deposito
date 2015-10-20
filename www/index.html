@@ -32,6 +32,8 @@
     <body>
   <form style="width: 100%; text-align: center;">
         <input type="button" value="Escanea Código" onclick="Escanea()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 100px;"/>
+        <input type="button" value="Escanea Código 2" onclick="cordova.plugins.barcodeScanner.scan()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 100px;"/>
+        <input type="button" value="Escanea Código 3" onclick="Escanea2()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 100px;"/>
     </form>
         <div class="app">
             <h1>PhoneGap</h1>
@@ -45,8 +47,29 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-	<script>
+	<script type="text/javascript">
 function Escanea() {
+   cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("Se detectó un código\n" +
+                "Lectura: " + result.text + "\n" +
+                "Formato: " + result.format + "\n" +
+                "Cancelado: " + result.cancelled);
+		document.getElementById('deviceready').innerHTML = result.text;
+      }, 
+      function (error) {
+          alert("El escaneo falló: " + error);
+      }
+   );
+}	
+function Escanea2() {
+alert('Se disparó la función');
+if (cordova.plugins == undefined) {
+alert('cordova.plugins undefined') ;
+}
+if (cordova.plugins.barcodeScanner == undefined) {
+alert('cordova.plugins.barcodeScanner undefined') ;
+}
    cordova.plugins.barcodeScanner.scan(
       function (result) {
           alert("Se detectó un código\n" +
