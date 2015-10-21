@@ -47,3 +47,18 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function Escanea() {
+   cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("Se detectó un código\n" +
+                "Lectura: " + result.text + "\n" +
+                "Formato: " + result.format + "\n" +
+                "Cancelado: " + result.cancelled);
+		document.getElementById('deviceready').innerHTML = result.text;
+      }, 
+      function (error) {
+          alert("El escaneo falló: " + error);
+      }
+   );
+}
