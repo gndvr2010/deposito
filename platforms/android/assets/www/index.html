@@ -27,6 +27,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+<<<<<<< HEAD
         <script src="js/jquery-1.6.4.js"></script>
         <script src="js/jquery.mobile-1.1.0.js"></script>
         <link href="css/jquery.mobile.structure-1.1.0.css" rel="stylesheet"/>
@@ -35,10 +36,84 @@
     </head>
     <body>
          <script type="text/javascript" src="cordova.js"></script>
+=======
+	<script src="http://pastock.ddns.net:3000/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/estilo.css">
+	<script src="js/ingresa_salida.js"></script>
+        <title>Depósito</title>
+    </head>
+    <body>
+
+<div id="box1">
+<p style="text-align:center;">SALIDA DE PRODUCTO TERMINADO</p>
+<br>
+<div style="width:1110px; position:absolute; left:50px; top:50px;">
+
+<div class="fila">
+	<div class="columna_parametro">TIPO DE MOVIMIENTO</div>
+	<div class="columna_dato_i"><select onchange="Actualiza_Tipo_Movimiento(this)" id="tipo_mov" name="tipo_mov" style="width:371px;background: transparent; border: 0 !important;font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: normal; font-size:12pt; height:25px;"></select></div><div id="ayuda_tipo_mov" class="ayuda"></div>
+</div>
+
+<div class="fila">
+	<div class="columna_parametro">Nº DE MOVIMIENTO</div>
+	<div class="columna_dato_p"><input onchange="Actualiza_Nro_Mov()" id="nro_mov" type="text" class="form_input"></div><div id="ayuda_nro_mov" class="ayuda"></div>
+</div>
+
+<div class="fila">
+	<div class="columna_parametro">EMISOR</div>
+	<div class="columna_dato_i"><select onchange="Actualiza_Emisor(this)" id="emisor" name="emisor" style="width:371px;background: transparent; border: 0 !important;font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: normal; font-size:12pt; height:25px;"></select></div><div id="ayuda_emisor" class="ayuda"></div>
+</div>
+
+<div class="fila">
+	<div class="columna_parametro">RECEPTOR</div>
+	<div class="columna_dato_p"><select onchange="Actualiza_Receptor(this)" id="receptor" name="receptor" style="width:371px;background: transparent; border: 0 !important;font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: normal; font-size:12pt; height:25px;"></select></div><div id="ayuda_receptor" class="ayuda"></div>
+</div>
+
+<div class="fila">
+	<div class="columna_parametro">ÁREA DE DESTINO</div>
+	<div class="columna_dato_i"><input onchange="Actualiza_Destino()" id="destino" type="text" class="form_input"></div><div id="ayuda_destino" class="ayuda"></div>
+</div>
+</div>
+
+<div style="width:1110px; position:absolute; left:50px; top:220px;">
+			<div class="fila">
+				<div class="columna_parametro" style="border-top: 1px solid black;">ARTÍCULO</div>
+				<div class="columna_dato_p" style="border-top: 1px solid black;"><div id="cargando" class="loading" style="padding-left:5px;">Cargando</div><select id="articulo" name="articulo" style="visibility:hidden;width:371px;background: transparent; border: 0 !important;font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: normal; font-size:12pt; height:25px;" onchange="ListaLPT(this);"></select></div><div id="ayuda_articulo" class="ayuda" style="height:27px;"></div>
+			</div>
+<div class="fila">
+	<div class="columna_parametro">LOTE DE P.T.</div>
+	<div class="columna_dato_i"><select onchange="Actualiza_LPT(this)" id="lpt" name="lpt" style="width:371px;background: transparent; border: 0 !important;font-family: Arial,Helvetica Neue,Helvetica,sans-serif; font-weight: normal; font-size:12pt; height:25px;"></select></div><div id="ayuda_lpt" class="ayuda"></div>
+</div>
+
+<div class="fila">
+	<div class="columna_parametro">UNIDADES</div>
+	<div class="columna_dato_p"><input onchange="ActualizaSalida()" onkeyup="CompruebaStock()" id="unidades" type="text" class="form_input" disabled></div><div id="ayuda_unidades" class="ayuda"></div>
+</div>
+<div class="fila">
+<input type="button" value="Agrega Item" onclick="ValidarItem()" style="float:left;width:200px;">
+</div>
+</div>
+<div id="div_tabla_items" style="width:660px; position:absolute; left:50px; top:335px;"></div>
+
+
+
+  <form style="width: 100%; text-align: center;">
+        <input type="button" value="Escanea Código" onclick="Escanea()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 100px;"/>
+    </form>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+>>>>>>> 6f0f16af3fb6edd899ad50d2daff6887ac800a06
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+<<<<<<< HEAD
 
         <div data-role="page" id="page1" data-theme="d">
             <div data-role="header">
@@ -76,5 +151,23 @@
                 <h1>Guillermo Núñez - 2015</h1>
             </div>
         </div>
+=======
+	<script type="text/javascript">
+function Escanea() {
+   cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("Se detectó un código\n" +
+                "Lectura: " + result.text + "\n" +
+                "Formato: " + result.format + "\n" +
+                "Cancelado: " + result.cancelled);
+		document.getElementById('deviceready').innerHTML = result.text;
+      }, 
+      function (error) {
+          alert("El escaneo falló: " + error);
+      }
+   );
+}
+	</script>
+>>>>>>> 6f0f16af3fb6edd899ad50d2daff6887ac800a06
     </body>
 </html>
