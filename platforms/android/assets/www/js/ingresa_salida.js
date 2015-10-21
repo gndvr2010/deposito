@@ -531,9 +531,10 @@ function ConectaSocket() {
 	socket = io.connect('http://pastock.ddns.net:3000');
 	//Le pido al servidor que consulte a la BD y me mande los datos
 	socket.on('Conexión Establecida' , function() {
-		CargaPedido('ART');
-		CargaPedido('DMOV','');
-		CargaPedido('FUNC');
+		//CargaPedido('ART');
+		//CargaPedido('DMOV','');
+		//CargaPedido('FUNC');
+		alert('CONECTADO');			
 	});
 	//Cuando el servidor envía los datos (emite 'CargaDatos') lleno mi tabla
 /*
@@ -602,7 +603,7 @@ function ConectaSocket() {
 		}
 		document.getElementById('tipo_mov').innerHTML=tabla;
 		var select_tipo_mov =document.getElementById('tipo_mov');
-		Actualiza_Tipo_Movimiento(select_tipo_mov);
+		//Actualiza_Tipo_Movimiento(select_tipo_mov);
 	});
 
 	socket.on('CargaFUNC_Resultado', function(data){
@@ -629,7 +630,7 @@ function ConectaSocket() {
 		document.getElementById('emisor').innerHTML=tabla;
 		document.getElementById('receptor').innerHTML=tabla2;
 		var select_emisor = document.getElementById('emisor');
-		Actualiza_Emisor(select_emisor);
+		//Actualiza_Emisor(select_emisor);
 	});
 /*
 	socket.on('CargaLPT_Resultado', function(data){
