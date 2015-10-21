@@ -1,7 +1,7 @@
 array_item=[];
 encabezado={fecha:'', nro_mov:'', id_mov:'', id_func:'', id_func_receptor:'', receptor:''};
 item={articulo:'', stock:'', id_lpt:'', lpt:'', entradas:'0', salidas:'', observaciones:''};
-
+/*
 function Valida_numero(campo) {
 	if(isNaN(campo) || campo == null || campo.length == 0 || /^\s+$/.test(campo)) {
 		return false;
@@ -450,12 +450,12 @@ var d = new Date();
 document.getElementById('fecha').value= String('00'+d.getDate()).slice(-2)+'/'+String('00'+(d.getMonth()+1)).slice(-2)+'/'+d.getFullYear();
 encabezado.fecha = d.getFullYear()+'-'+String('00'+(d.getMonth()+1)).slice(-2)+'-'+String('00'+d.getDate()).slice(-2);
 }
-
+*/
 function CargaPedido(columna, consulta) {	
 	var data = {id:socket.io.engine.id, consulta:consulta}
 	socket.emit('Carga'+columna+'_Pedido', data);
 }
-
+/*
 function muestraNotifica() {
 document.getElementById('box1blur').style.visibility='visible';
 document.getElementById('notifica').style.visibility='visible';
@@ -524,7 +524,7 @@ function ListaLPT(elemento) {
 	var select_lote_bodega = document.getElementById('lpt');
 	Actualiza_LPT(select_lote_bodega);
 }
-
+*/
 
 function ConectaSocket() {
 	//inicializo socket como variable global. Para ello omito "var" en la declaración
@@ -536,7 +536,7 @@ function ConectaSocket() {
 		CargaPedido('FUNC');
 	});
 	//Cuando el servidor envía los datos (emite 'CargaDatos') lleno mi tabla
-
+/*
 	socket.on('CargaART_Resultado', function(data){
 		var tabla = '<option selected value="0" style="display:none;">Elige un artículo del listado</option>'
 		var tipo_aceite=[]; 
@@ -592,7 +592,7 @@ function ConectaSocket() {
 		document.getElementById('articulo').style.visibility='visible';
 		CargaPedido('LPT');
 	});
-
+*/
 	socket.on('CargaDMOV_Resultado', function(data){
 		var tabla='<option selected value="0" style="display:none;">Elige el Tipo de Movimiento</option>';
 		for (var i = 0; i < data.length; i++) {
@@ -631,11 +631,12 @@ function ConectaSocket() {
 		var select_emisor = document.getElementById('emisor');
 		Actualiza_Emisor(select_emisor);
 	});
-
+/*
 	socket.on('CargaLPT_Resultado', function(data){
 		lpt=[]; //OJO!!!!! LO DEFINO DE FORMA GLOBAL (sin 'var') PORQUE LO USO MÁS ADELANTE
 		for (var i = 0; i < data.length; i++) {
 			lpt.push({id_lpt:data[i]['Id'], tipo:data[i]['Tipo'], variedad:data[i]['Variedad'], envase:data[i]['Envase'], lote:data[i]['LPT'], stock:data[i]['Stock']});
 		}
 	});
+*/
 }
