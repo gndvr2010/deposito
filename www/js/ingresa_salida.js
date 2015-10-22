@@ -1,6 +1,11 @@
 array_item=[];
 encabezado={fecha:'', nro_mov:'', id_mov:'', id_func:'', id_func_receptor:'', receptor:''};
 item={articulo:'', stock:'', id_lpt:'', lpt:'', entradas:'0', salidas:'', observaciones:''};
+
+function MuestraDatos() {
+$("#texto").val(item.entradas+'|'+encabezado.id_func_receptor+'|'+encabezado.id_func);
+}
+
 /*
 function Valida_numero(campo) {
 	if(isNaN(campo) || campo == null || campo.length == 0 || /^\s+$/.test(campo)) {
@@ -376,16 +381,17 @@ function Actualiza_Destino() {
 function Actualiza_Tipo_Movimiento(elemento) {
 	encabezado.id_mov = elemento.options[elemento.selectedIndex].value;
 }
-
-function Actualiza_Emisor(elemento) {
-	encabezado.id_func = elemento.options[elemento.selectedIndex].value;
+*/
+function Actualiza_Emisor() {
+	encabezado.id_func= $("#emisor option:selected").attr('id');
 }
 
-function Actualiza_Receptor(elemento) {
-	encabezado.id_func_receptor = elemento.options[elemento.selectedIndex].value;
-	CompletaDestino();
+function Actualiza_Receptor() {
+	encabezado.id_func_receptor = $('#receptor option:selected').attr('id');
+//	CompletaDestino();
 }
 
+/*
 function CompletaDestino() {
 	if (parseInt(encabezado.id_func_receptor) >= 13 && parseInt(encabezado.id_func_receptor) <= 15 || parseInt(encabezado.id_func_receptor) == 19) {
 		document.getElementById('destino').value='Departamento Comercial';
@@ -452,7 +458,7 @@ encabezado.fecha = d.getFullYear()+'-'+String('00'+(d.getMonth()+1)).slice(-2)+'
 }
 */
 function CargaPedido(columna, consulta) {	
-	var data = {id:socket.io.engine.id, consulta:consulta}
+	var data = {id:socket.io.engine.id, consulta:consulta};
 	socket.emit('Carga'+columna+'_Pedido', data);
 }
 /*
@@ -532,9 +538,8 @@ function ConectaSocket() {
 	//Le pido al servidor que consulte a la BD y me mande los datos
 	socket.on('Conexión Establecida' , function() {
 		//CargaPedido('ART');
-		//CargaPedido('DMOV','');
-		//CargaPedido('FUNC');
-		alert('CONECTADO');			
+		CargaPedido('DMOV','');
+		CargaPedido('FUNC');
 	});
 	//Cuando el servidor envía los datos (emite 'CargaDatos') lleno mi tabla
 /*
@@ -595,20 +600,21 @@ function ConectaSocket() {
 	});
 */
 	socket.on('CargaDMOV_Resultado', function(data){
-		var tabla='<option selected value="0" style="display:none;">Elige el Tipo de Movimiento</option>';
+		var tabla='<option value="" data-placeholder="true">Elige el Tipo de Movimiento</option>';
 		for (var i = 0; i < data.length; i++) {
 			if (data[i]['Entrada']!=1) {
 				tabla+='<option id="'+data[i]['Id']+'" value="'+data[i]['Id']+'">'+data[i]['Col1']+'</option>';	
 			}		
 		}
-		document.getElementById('tipo_mov').innerHTML=tabla;
-		var select_tipo_mov =document.getElementById('tipo_mov');
-		//Actualiza_Tipo_Movimiento(select_tipo_mov);
+
+		$("#tipo_mov").append(tabla);
+		$("#tipo_mov").selectmenu();
+		$("#tipo_mov").selectmenu('refresh', true);
 	});
 
 	socket.on('CargaFUNC_Resultado', function(data){
-		var tabla='<option value="0" style="display:none;">Elija el nombre de quien entrega el pedido</option>';
-		var tabla2='<option value="0" style="display:none;">Elija el nombre de quien recibe el producto</option>';
+		var tabla='<option value="" data-placeholder="true">Elija el nombre de quien entrega el pedido</option>';
+		var tabla2='<option value="" data-placeholder="true">Elija el nombre de quien recibe el producto</option>';
 		var fin_tbl1='';
 		var fin_tbl2='';
 		for (var i = 0; i < data.length; i++) {
@@ -627,10 +633,14 @@ function ConectaSocket() {
 		}
 		tabla2+=fin_tbl1+fin_tbl2;
 		tabla2+='<option id="0" value="0">Otro</option>';
-		document.getElementById('emisor').innerHTML=tabla;
-		document.getElementById('receptor').innerHTML=tabla2;
-		var select_emisor = document.getElementById('emisor');
-		//Actualiza_Emisor(select_emisor);
+
+		$("#emisor").append(tabla);
+		$("#emisor").selectmenu();
+		$("#emisor").selectmenu('refresh', true);
+
+		$("#receptor").append(tabla2);
+		$("#receptor").selectmenu();
+		$("#receptor").selectmenu('refresh', true);
 	});
 /*
 	socket.on('CargaLPT_Resultado', function(data){
