@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocketIO\"><param name=\"android-package\" value=\"plugin.socket.io.SocketIO\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -540,6 +544,9 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "plugin.socket.io": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },

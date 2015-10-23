@@ -534,7 +534,8 @@ function ListaLPT(elemento) {
 
 function ConectaSocket() {
 	//inicializo socket como variable global. Para ello omito "var" en la declaración
-	socket = io.connect('http://pastock.ddns.net:3000');
+	//socket = io.connect('http://pastock.ddns.net:3000');
+	socket = plugin.socket.io.connect('http://pastock.ddns.net:3000');
 	//Le pido al servidor que consulte a la BD y me mande los datos
 	socket.on('Conexión Establecida' , function() {
 		//CargaPedido('ART');
