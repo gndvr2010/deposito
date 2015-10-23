@@ -14,22 +14,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "plugin.socket.io": {
-        "source": {
-            "type": "registry",
-            "id": "plugin.socket.io"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.ququplay.websocket.WebSocket": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/mkuklis/phonegap-websocket",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }

@@ -16,17 +16,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-function loadScript(url, callback) {
-	var head = document.getElementsByTagName('head')[0];
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = url;
-	script.onload = callback;
-	head.appendChild(script);
-}
-
-
-
 
 var app = {
     // Application Constructor
@@ -38,9 +27,6 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-	loadScript('http://pastock.ddns.net:3000/socket.io/socket.io.js', function () {
-		socket = io.connect("http://pastock.ddns.net:3000");
-	}
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
