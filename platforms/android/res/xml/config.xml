@@ -11,6 +11,9 @@
     <feature name="SocketIO">
         <param name="android-package" value="plugin.socket.io.SocketIO" />
     </feature>
+    <feature name="WebSocket">
+        <param name="android-package" value="com.ququplay.websocket.WebSocket" />
+    </feature>
     <allow-intent href="market:*" />
     <name>Gestión de Depósito</name>
     <description>
@@ -55,7 +58,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
     <gap:plugin name="org.apache.cordova.vibration" source="npm" />
     <gap:plugin name="phonegap-plugin-barcodescanner" source="npm" />
-    <gap:plugin name="plugin-socket.io" />
+    <gap:plugin name="com.ququplay.websocket.WebSocket" source="npm" />
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />

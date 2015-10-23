@@ -18,6 +18,13 @@ module.exports = [
         "clobbers": [
             "plugin.socket.io"
         ]
+    },
+    {
+        "file": "plugins/com.ququplay.websocket.WebSocket/www/phonegap-websocket.js",
+        "id": "com.ququplay.websocket.WebSocket.websocket",
+        "clobbers": [
+            "WebSocket"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -25,7 +32,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.0",
     "phonegap-plugin-barcodescanner": "4.1.0",
-    "plugin.socket.io": "1.0.0"
+    "plugin.socket.io": "1.0.0",
+    "com.ququplay.websocket.WebSocket": "0.1.0"
 }
 // BOTTOM OF METADATA
 });
