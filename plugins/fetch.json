@@ -14,5 +14,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.indigoway.cordova.whitelist.WhitelistPlugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Indigoway/cordova-plugin-whitelist",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
