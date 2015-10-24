@@ -71,14 +71,10 @@
     <access origin="*" />
     <access origin="*:*" />
     <plugin name="cordova-plugin-whitelist"/>
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+<allow-navigation href="*" />
+<allow-intent href="*" />
     <platform name="android">
-        <allow-intent href="market:*" />
+<allow-intent href="*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
