@@ -30,5 +30,6 @@ public class MainActivity extends CordovaActivity
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
         loadUrl("file:///android_asset/www/index.html");
+super.setIntegerProperty("loadUrlTimeoutValue", 70000); 
     }
 }
