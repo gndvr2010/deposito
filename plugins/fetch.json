@@ -1,12 +1,4 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "phonegap-plugin-barcodescanner": {
         "source": {
             "type": "registry",
@@ -15,11 +7,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.indigoway.cordova.whitelist.WhitelistPlugin": {
+    "cordova-plugin-whitelist": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/Indigoway/cordova-plugin-whitelist",
-            "subdir": "."
+            "type": "registry",
+            "id": "cordova-plugin-whitelist"
         },
         "is_top_level": true,
         "variables": {}
