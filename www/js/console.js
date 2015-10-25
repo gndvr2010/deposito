@@ -1,11 +1,11 @@
-if (typeof console  != "undefined") 
-  if (typeof console.log != 'undefined')
-    console.olog = console.log;
-else
-  console.olog = function() {};
-
-console.log = function(message) {
-  console.olog(message);
-  $('#debugDiv').append('<p>' + message + '</p>');
-};
-console.error = console.debug = console.info =  console.log
+(function () {
+    var old = console.log;
+    var logger = document.getElementById('log');
+    console.log = function (message) {
+        if (typeof message == 'object') {
+            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+        } else {
+            logger.innerHTML += message + '<br />';
+        }
+    }
+})();
