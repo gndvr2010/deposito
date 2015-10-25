@@ -1,11 +1,11 @@
 (function () {
     var old = console.log;
-    var logger = document.getElementById('log');
+
     console.log = function (message) {
         if (typeof message == 'object') {
-            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+            $("#texto").val($("#texto").val()+(JSON && JSON.stringify ? JSON.stringify(message) : message));
         } else {
-            logger.innerHTML += message + '<br />';
+            $("#texto").val($("#texto").val()+message);
         }
     }
 })();
