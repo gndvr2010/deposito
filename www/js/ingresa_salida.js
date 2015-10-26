@@ -607,7 +607,7 @@ function ConectaSocket() {
 			}		
 		}
 
-		$("#tipo_mov").append(tabla);
+		$("#tipo_mov").innerHML=tabla;
 		$("#tipo_mov").selectmenu();
 		$("#tipo_mov").selectmenu('refresh', true);
 	});

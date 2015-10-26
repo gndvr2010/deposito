@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Depósito</name>
+    <name>Gestión de Depósito</name>
     <description>
-Sistema para gestión de depósito.
+        Aplicación para controlar el stock de existencias en depósito.
     </description>
     <author email="guillermo.nunez@agroland.com" href="http://pastock.ddns.net:3000">
-Agroland
+        Guillermo Núñez
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
