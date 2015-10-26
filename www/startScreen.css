@@ -1,0 +1,53 @@
+
+/* Define default spinner */
+.ui-icon-loading {
+	background: url("files/resources/lib/jquerymobile/1.4.4/images/ajax-loader.gif") repeat scroll 0 0 / 46px 46px transparent!important;
+}
+/* mobilecontainer */
+.ui-content.startScreen_mobilecontainer {
+	padding: 15px 15px 15px 15px;
+}
+/* mobiledatepicker_2 */
+.startScreen_mobiledatepicker_2 {
+	margin: 4px 0px 4px 0px;
+}
+.startScreen_mobiledatepicker_2 .datePickerControls {
+	position:relative;
+	top:0;
+	padding-right:45px;
+}
+.startScreen_mobiledatepicker_2 .datepickeropenbutton {
+	position:absolute;
+	right:0;
+}
+/* mobileselectmenu_3 */
+.startScreen_mobileselectmenu_3 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobiletextinput_10 */
+.startScreen_mobiletextinput_10 {
+	margin: 4px 0px 4px 0px;
+}
+/* mobileselectmenu_5 */
+.startScreen_mobileselectmenu_5 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobileselectmenu_7 */
+.startScreen_mobileselectmenu_7 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobiletextinput_13 */
+.startScreen_mobiletextinput_13 {
+	margin: 4px 0px 4px 0px;
+}
+/* mobilebutton_14 */
+#startScreen_mobilebutton_14 {
+
+}
+.ui-btn.startScreen_mobilebutton_14 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobilefooter */
+.startScreen_mobilefooter {
+	min-height:38px;
+}
