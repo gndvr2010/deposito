@@ -48,22 +48,12 @@
                 <h1>Gestión de depósito</h1>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <label for="text2">Fecha</label>
-                    <input type="text" id="text2" />
-                </div>
-                <select id="tipo_mov" name="tipo_mov" data-native-menu="false">
-                </select>
-                <div data-role="fieldcontain">
-                    <label for="text1">Nº Mov</label>
-                    <input type="text" id="text1" />
-                </div>
-                <select onchange="Actualiza_Emisor()" id="emisor" name="emisor" data-native-menu="false">
-                </select>
-		<br>
-                <select onchange="Actualiza_Receptor()" id="receptor" name="receptor" data-native-menu="false">
-                </select>
-		<br>
+		<input type="text" id="fecha" placeholder="Fecha"/>
+                <select id="tipo_mov" name="tipo_mov" data-native-menu="false"></select>
+		<input type="text" id="nro_mov" placeholder="Nº de Movimiento" />
+                <select onchange="Actualiza_Emisor()" id="emisor" name="emisor" data-native-menu="false"></select>
+                <select onchange="Actualiza_Receptor()" id="receptor" name="receptor" data-native-menu="false"></select>
+		<input type="text" id="destino" placeholder="Destino" />
                 <textarea id="texto"></textarea>
                 <a data-role="button" id="btn_agrega_art" href="#" data-iconpos="right"
                 data-theme="b" data-inline="true" onclick="Escanea()">Agrega Artículos</a>
