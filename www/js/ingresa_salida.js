@@ -634,11 +634,11 @@ function ConectaSocket() {
 		tabla2+=fin_tbl1+fin_tbl2;
 		tabla2+='<option id="0" value="0">Otro</option>';
 
-		$("#emisor").append(tabla);
+		$("#emisor").innerHML=tabla;
 		$("#emisor").selectmenu();
 		$("#emisor").selectmenu('refresh', true);
 
-		$("#receptor").append(tabla2);
+		$("#receptor").innerHML=tabla2;
 		$("#receptor").selectmenu();
 		$("#receptor").selectmenu('refresh', true);
 	});
