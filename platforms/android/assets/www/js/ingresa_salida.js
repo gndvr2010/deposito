@@ -639,7 +639,7 @@ function ConectaSocket() {
 		$("#emisor").selectmenu();
 		$("#emisor").selectmenu('refresh', true);
 
-		document.getElementById('receptor').innerHTML=tabla;
+		document.getElementById('receptor').innerHTML=tabla2;
 		$("#receptor").selectmenu();
 		$("#receptor").selectmenu('refresh', true);
 	});
