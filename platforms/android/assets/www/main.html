@@ -24,16 +24,15 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
 <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://pastock.ddns.net:3000 " />
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-  <link rel="stylesheet" href="css/jquery.ui.datepicker.mobile.css" /> 
         <script src="js/jquery-1.6.4.js"></script>
         <script src="js/jquery.mobile-1.1.0.js"></script>
         <link href="css/jquery.mobile.structure-1.1.0.css" rel="stylesheet"/>
         <link href="css/jquery.mobile.theme-1.1.0.css" rel="stylesheet" />
+        <link href="css/jquery.mobile.datepicker.css" rel="stylesheet" />
 	<script type="text/javascript" src="http://pastock.ddns.net:3000/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="js/ingresa_salida.js"></script>
-  <script src="js/jQuery.ui.datepicker.js"></script>
-  <script src="js/jquery.ui.datepicker.mobile.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile.datepicker.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.datepicker.js"></script>
         <title>Depósito</title>
     </head>
 
@@ -51,7 +50,7 @@
 			<h1>Gestión de depósito</h1>
 		</div>
 		<div id="contenido" data-role="content">
-			<input type="date" id="fecha" placeholder="Fecha" />
+			<input type="text" id="fecha" data-role="date" placeholder="Fecha" />
 			<br>
 			<select id="tipo_mov" name="tipo_mov" data-native-menu="false"></select>
 			<br>
