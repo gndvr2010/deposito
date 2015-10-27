@@ -388,10 +388,10 @@ function Actualiza_Emisor() {
 
 function Actualiza_Receptor() {
 	encabezado.id_func_receptor = $('#receptor option:selected').attr('id');
-//	CompletaDestino();
+	CompletaDestino();
 }
 
-/*
+
 function CompletaDestino() {
 	if (parseInt(encabezado.id_func_receptor) >= 13 && parseInt(encabezado.id_func_receptor) <= 15 || parseInt(encabezado.id_func_receptor) == 19) {
 		document.getElementById('destino').value='Departamento Comercial';
@@ -422,7 +422,7 @@ function CompletaDestino() {
 		item.observaciones='Muestras Laboratorio';
 	}
 }
-
+/*
 function Actualiza_LPT(elemento) {
 	item.id_lpt = elemento.options[elemento.selectedIndex].value;
 	item.lpt = elemento.options[elemento.selectedIndex].getAttribute('data-lpt');
@@ -607,7 +607,8 @@ function ConectaSocket() {
 			}		
 		}
 
-		$("#tipo_mov").innerHML=tabla;
+		//$("#tipo_mov").append(tabla);
+		document.getElementById('tipo_mov').innerHTML=tabla;
 		$("#tipo_mov").selectmenu();
 		$("#tipo_mov").selectmenu('refresh', true);
 	});
@@ -634,11 +635,11 @@ function ConectaSocket() {
 		tabla2+=fin_tbl1+fin_tbl2;
 		tabla2+='<option id="0" value="0">Otro</option>';
 
-		$("#emisor").innerHML=tabla;
+		document.getElementById('emisor').innerHTML=tabla;
 		$("#emisor").selectmenu();
 		$("#emisor").selectmenu('refresh', true);
 
-		$("#receptor").innerHML=tabla2;
+		document.getElementById('receptor').innerHTML=tabla;
 		$("#receptor").selectmenu();
 		$("#receptor").selectmenu('refresh', true);
 	});
