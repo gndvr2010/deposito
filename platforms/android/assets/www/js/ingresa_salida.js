@@ -461,144 +461,17 @@ function CargaPedido(columna, consulta) {
 	var data = {id:socket.io.engine.id, consulta:consulta};
 	socket.emit('Carga'+columna+'_Pedido', data);
 }
-/*
-function muestraNotifica() {
-document.getElementById('box1blur').style.visibility='visible';
-document.getElementById('notifica').style.visibility='visible';
-}
-function ocultaNotifica() {
-document.getElementById('box1blur').style.visibility='hidden';
-document.getElementById('notifica').style.visibility='hidden';
-}
-
-function eliminarRepetidos(arreglo)
-{
-    var arreglo2 = arreglo;
-    for (var m=0; m<arreglo2.length; m++)
-    {
-        for (var n=0; n<arreglo2.length; n++)
-        {
-            if(n!=m)
-            {
-                if(arreglo2[m]==arreglo2[n])
-                {
-                    //si hay términos iguales los suprime, y evalua el siguiente que ahora es el mismo término
-                    arreglo2.splice(n,1);  
-                      --n;            
-                }
-            }
-        }
-    }
-    return arreglo2;
-}
-
-function ListaLPT(elemento) {
-	var articulo = elemento.options[elemento.selectedIndex].getAttribute('data-art');
-	item={articulo:articulo, stock:'0',id_lpt:'', lpt:'', entradas:'0', salidas:'0', observaciones:item.observaciones};//Pongo el array en cero.
-	var tabla= '<option value="0" style="display:none;">Elija el Lote de Producto Terminado</option>'
-	var array_lpt=[];
-	var lpt_alternativo=[];
-	var tipo = elemento.options[elemento.selectedIndex].getAttribute('id_tipo');
-	var variedad = elemento.options[elemento.selectedIndex].getAttribute('id_variedad');	
-	var envase = elemento.options[elemento.selectedIndex].getAttribute('envase');
-	for (var j = 0; j < lpt.length; j++) {
-		if (lpt[j]['envase'] == envase) {
-			if (lpt[j]['tipo'] == tipo){
-				if (tipo == 1) {
-					if (lpt[j]['variedad'] == variedad){				
-						array_lpt.push(lpt[j]);
-					}
-				} else {
-					array_lpt.push(lpt[j]);
-				}		
-			} 
-		}
-	}
-	if (array_lpt.length==0) {
-		var tabla = '<option selected value="0" style="display:none;">No hay coincidencias</option>'
-		document.getElementById('lpt').disabled=true;
-		document.getElementById('lpt').style.color='red';	
-	} else {
-		document.getElementById('lpt').disabled=false;
-		document.getElementById('lpt').style.color='';	
-	}
-
-	for (var j = 0; j < array_lpt.length; j++) {
-	tabla+='<option value="'+array_lpt[j]['id_lpt']+'" data-lpt="'+array_lpt[j]['lote']+'" data-stock="'+array_lpt[j]['stock']+'">'+array_lpt[j]['lote']+'&nbsp*&nbspStock: '+array_lpt[j]['stock']+'</option>';
-	}
-	document.getElementById('lpt').innerHTML=tabla;
-	var select_lote_bodega = document.getElementById('lpt');
-	Actualiza_LPT(select_lote_bodega);
-}
-*/
 
 function ConectaSocket() {
 	//inicializo socket como variable global. Para ello omito "var" en la declaración
 	socket = io.connect('http://pastock.ddns.net:3000');
 	//Le pido al servidor que consulte a la BD y me mande los datos
 	socket.on('Conexión Establecida' , function() {
-		//CargaPedido('ART');
 		CargaPedido('DMOV','');
 		CargaPedido('FUNC');
 	});
 	//Cuando el servidor envía los datos (emite 'CargaDatos') lleno mi tabla
-/*
-	socket.on('CargaART_Resultado', function(data){
-		var tabla = '<option selected value="0" style="display:none;">Elige un artículo del listado</option>'
-		var tipo_aceite=[]; 
-		var array_final=[];
-		for (var i = 0; i < data.length; i++) {
-			tipo_aceite.push(data[i]['tipo_aceite']);
-		}
-		eliminarRepetidos(tipo_aceite);
-		for (var j = 1; j < 8; j++) {	
-			var ta_separado =tipo_aceite[j].split('|');		
-			array_final.push({categoria:'OG', id_tipo:'', id_variedad:'', codigo:'', variedad:'', envase:'', id_art:'', valor:ta_separado[1]});			
-			for (var k = 0; k < data.length; k++) {
-				if (data[k]['tipo_aceite']==tipo_aceite[j]) {
-				array_final.push({categoria:'O', id_tipo:data[k]['id_tipo'], id_variedad:data[k]['id_variedad'], codigo:data[k]['codigo'], variedad:data[k]['variedad'], envase:data[k]['envase'], id_art:data[k]['id'], valor:data[k]['abreviado']});
-				}
-			}
-		}
-		for (var j = 0; j < 1; j++) {	
-			var ta_separado =tipo_aceite[j].split('|');			
-			array_final.push({categoria:'OG', id_tipo:'', id_variedad:'', codigo:'', tipo:'', variedad:'', envase:'', id_art:'', valor:ta_separado[1]});			
-			for (var k = 0; k < data.length; k++) {
-				if (data[k]['tipo_aceite']==tipo_aceite[j]) {
-				array_final.push({categoria:'O', id_tipo:data[k]['id_tipo'], id_variedad:data[k]['id_variedad'], codigo:data[k]['codigo'], tipo:data[k]['tipo_aceite'], variedad:data[k]['variedad'], envase:data[k]['envase'], id_art:data[k]['id'], valor:data[k]['abreviado']});
-				}
-			}
-		}
-		for (var j = 8; j < tipo_aceite.length; j++) {	
-			var ta_separado =tipo_aceite[j].split('|');			
-			array_final.push({categoria:'OG', codigo:'', tipo:'', variedad:'', envase:'', id_art:'', valor:ta_separado[1]});			
-			for (var k = 0; k < data.length; k++) {
-				if (data[k]['tipo_aceite']==tipo_aceite[j]) {
-				array_final.push({categoria:'O', codigo:data[k]['codigo'], tipo:data[k]['tipo_aceite'], variedad:data[k]['variedad'], envase:data[k]['envase'], id_art:data[k]['id'], valor:data[k]['abreviado']});
-				}
-			}
-		}
-		for (var l = 0; l < array_final.length; l++) {
-			if (array_final[l]['categoria']=='O') {
-				if (l == (array_final.length-1)) {
-					tabla+='<option codigo="'+array_final[l]['codigo']+'" variedad="'+array_final[l]['variedad']+'" id_tipo="'+array_final[l]['id_tipo']+'"  id_variedad="'+array_final[l]['id_variedad']+'" envase="'+array_final[l]['envase']+'" value="'+array_final[l]['id_art']+'" data-art="'+array_final[l]['valor']+'">'+array_final[l]['valor']+'</option></optgroup>';
-				} else {
-					tabla+='<option codigo="'+array_final[l]['codigo']+'" variedad="'+array_final[l]['variedad']+'" id_tipo="'+array_final[l]['id_tipo']+'"  id_variedad="'+array_final[l]['id_variedad']+'" envase="'+array_final[l]['envase']+'" value="'+array_final[l]['id_art']+'" data-art="'+array_final[l]['valor']+'">'+array_final[l]['valor']+'</option>';				
-				}
-			} else {
-				if (l == 0) {
-					tabla+='<optgroup label="'+array_final[l]['valor']+'">';
-				} else {
-					tabla+='</optgroup><optgroup label="'+array_final[l]['valor']+'">';		
-				}
-			}
-		}
-		document.getElementById('articulo').innerHTML=tabla;
-		document.getElementById('cargando').style.display='none';
-		document.getElementById('articulo').style.visibility='visible';
-		CargaPedido('LPT');
-	});
-*/
+
 	socket.on('CargaDMOV_Resultado', function(data){
 		var tabla='<option value="" data-placeholder="true">Elige el Tipo de Movimiento</option>';
 		for (var i = 0; i < data.length; i++) {
@@ -607,7 +480,6 @@ function ConectaSocket() {
 			}		
 		}
 
-		//$("#tipo_mov").append(tabla);
 		document.getElementById('tipo_mov').innerHTML=tabla;
 		$("#tipo_mov").selectmenu();
 		$("#tipo_mov").selectmenu('refresh', true);
@@ -643,12 +515,5 @@ function ConectaSocket() {
 		$("#receptor").selectmenu();
 		$("#receptor").selectmenu('refresh', true);
 	});
-/*
-	socket.on('CargaLPT_Resultado', function(data){
-		lpt=[]; //OJO!!!!! LO DEFINO DE FORMA GLOBAL (sin 'var') PORQUE LO USO MÁS ADELANTE
-		for (var i = 0; i < data.length; i++) {
-			lpt.push({id_lpt:data[i]['Id'], tipo:data[i]['Tipo'], variedad:data[i]['Variedad'], envase:data[i]['Envase'], lote:data[i]['LPT'], stock:data[i]['Stock']});
-		}
-	});
-*/
+
 }
