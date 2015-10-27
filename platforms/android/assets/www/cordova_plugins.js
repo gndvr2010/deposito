@@ -11,8 +11,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "phonegap-plugin-barcodescanner": "4.1.0",
-    "com.jp.WhitelistPlugin": "1.1.2"
+    "phonegap-plugin-barcodescanner": "4.1.0"
 }
 // BOTTOM OF METADATA
 });

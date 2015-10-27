@@ -534,9 +534,6 @@
     "installed_plugins": {
         "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "com.jp.WhitelistPlugin": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {}

@@ -6,14 +6,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "com.jp.WhitelistPlugin": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/lukesmith123/whitelist-2.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }
